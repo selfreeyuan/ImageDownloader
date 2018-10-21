@@ -4,15 +4,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.sun.javafx.collections.MappingChange.Map;
 
 public class StdConnector {
+	private ConnProperties properties;
 	
-	public InputStream getImage(URL url) throws IOException {
-		HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-			conn.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
-			conn.setRequestProperty("Accept-Encoding", "gzip, deflate, br");
-			conn.setRequestProperty("Referer", "ttps://www.nvshens.com/g/27828/2.html");
-			conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
+	
+	public InputStream getImage(URL url) throws Exception {
+			if(this.properties==null) {
+				throw new Exception("Conn Properties can not be null");
+			}
+			
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+			for (java.util.Map.Entry<String, String> property : properties.getProperties().) {
+				conn.addRequestProperty(property.getKey(), property.getValue());
+			}
+
 			return conn.getInputStream();
+	}
+	
+	public void setProperties(ConnProperties properties) {
+		this.properties = properties;
 	}
 }

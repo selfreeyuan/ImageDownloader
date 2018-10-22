@@ -3,7 +3,6 @@ package com.yuanh.imagedownloader;
 
 import org.junit.Test;
 
-import com.sun.java.swing.plaf.windows.resources.windows;
 
 import junit.framework.TestCase;
 
@@ -27,6 +26,6 @@ public class StdImageTest extends TestCase {
 		
 		ImageWriter writer = new ImageWriter("D://ImageDown//");
 		d.setWriter(writer);
-		d.ImageDownload("https://img.onvshen.com:85/gallery/24700/27091/s/039.jpg",0,39,1);
+		d.ImageDownload("http://img15.yixiu8.com:8080/picture/180925/pic5/35.jpg",1,35,1,"%d");
 	}
 }

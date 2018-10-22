@@ -9,7 +9,7 @@ public class StdImageDownloader extends Downloader{
 	Connector connector;
 	ImageWriter writer;
 
-	public void ImageDownload(String url, int start, int end, int seq) throws Exception {
+	public void ImageDownload(String url, int start, int end, int seq,String format) throws Exception {
 
 		String prefix = null;
 		String suffix = null;
@@ -28,7 +28,7 @@ public class StdImageDownloader extends Downloader{
 			if (i == 0) {
 				str = String.valueOf(i);
 			} else {
-				str = String.format("%03d", i);
+				str = String.format(format, i);
 
 			}
 			String target = prefix + str + suffix;

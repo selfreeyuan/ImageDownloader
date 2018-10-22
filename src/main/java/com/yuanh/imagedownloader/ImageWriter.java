@@ -5,10 +5,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class StdImageWriter {
-	public void writeImage(InputStream in,String path) throws IOException {
+public class ImageWriter {
+	String path;
+
+	public ImageWriter(String path) {
+		this.path = path;
+	}
+	
+	public void writeImage(InputStream in,String imgPath) throws IOException {
 		
-		FileOutputStream ou = new FileOutputStream(new File(path));
+		FileOutputStream ou = new FileOutputStream(new File(imgPath));
 		byte[] buffer = new byte[1024];
 		int readline;
 		while((readline = in.read(buffer))!=-1) {
@@ -16,5 +22,9 @@ public class StdImageWriter {
 		}
 		ou.flush();
 		ou.close();
+	}
+	
+	public String getPath() {
+		return this.path;
 	}
 }

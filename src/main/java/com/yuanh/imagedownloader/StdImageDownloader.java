@@ -1,16 +1,15 @@
 package com.yuanh.imagedownloader;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StdImageDownloader {
-	public void ImageDownload(String url,int start,int end,int seq) throws MalformedURLException, IOException {
-		String filePath = "D:/ImageDownload/";
+public class StdImageDownloader extends Downloader{
+	Connector connector;
+	ImageWriter writer;
+
+	public void ImageDownload(String url, int start, int end, int seq) throws Exception {
 
 		String prefix = null;
 		String suffix = null;
@@ -26,20 +25,30 @@ public class StdImageDownloader {
 
 		for (int i = start; i < end + 1; i++) {
 			String str = null;
-			if(i==0) {
+			if (i == 0) {
 				str = String.valueOf(i);
-			}else {
-				str =  String.format("%03d", i);
+			} else {
+				str = String.format("%03d", i);
 
 			}
 			String target = prefix + str + suffix;
 			URL imgUrl = new URL(target);
-			HttpURLConnection conn = (HttpURLConnection) imgUrl.openConnection();
-				InputStream in = conn.getInputStream();
-				StdImageWriter writer = new StdImageWriter();
-				writer.writeImage(in, filePath + seq+i + suffix);
+			
+			InputStream in = connector.getImageStream(imgUrl);
+			writer.writeImage(in, writer.getPath() + seq + i + suffix);
 
 		}
 
 	}
+	
+	public void setConnector(Connector connector) {
+		this.connector = connector;
+	}
+
+	@Override
+	public void setWriter(ImageWriter writer) {
+		this.writer = writer;
+	}
+
+	
 }

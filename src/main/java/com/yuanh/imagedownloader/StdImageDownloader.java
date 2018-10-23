@@ -10,7 +10,8 @@ public class StdImageDownloader extends Downloader{
 	ImageWriter writer;
 
 	public void ImageDownload(String url, int start, int end, int seq,String format) throws Exception {
-
+		super.ImageDownload(url, start, end, seq, format);
+		
 		String prefix = null;
 		String suffix = null;
 
@@ -40,15 +41,4 @@ public class StdImageDownloader extends Downloader{
 		}
 
 	}
-	
-	public void setConnector(Connector connector) {
-		this.connector = connector;
-	}
-
-	@Override
-	public void setWriter(ImageWriter writer) {
-		this.writer = writer;
-	}
-
-	
 }

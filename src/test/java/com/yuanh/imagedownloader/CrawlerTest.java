@@ -24,7 +24,7 @@ public class CrawlerTest {
 				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
 		connector.setProperties(properties);
 
-		InputStream in = connector.getImageStream(new URL("https://www.yuleba.org/a/211-1450-32.html"));
+		InputStream in = connector.getImageStream(new URL("https://www.yuleba.org/a/211-1450-31.html"));
 		System.out.println(findURL(in));
 	}
 
@@ -34,9 +34,11 @@ public class CrawlerTest {
 		boolean flag = false;
 		while ((str = reader.readLine()) != null) {
 			if (str.indexOf("<div class=\"picture\">") != -1) {
-				flag = true;
 				String nextImageLine = reader.readLine();
 				if (nextImageLine.indexOf("<img src=") != -1) {
+					flag = true;
+
+					System.out.println("step 2");
 					String regex = "(https?[0-9a-z:./]+)";
 					Pattern p = Pattern.compile(regex);
 					Matcher m = p.matcher(nextImageLine);

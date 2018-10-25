@@ -31,14 +31,10 @@ public class CrawlerTest {
 	private boolean findURL(InputStream in) throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		String str = null;
-		boolean flag = false;
 		while ((str = reader.readLine()) != null) {
 			if (str.indexOf("<div class=\"picture\">") != -1) {
 				String nextImageLine = reader.readLine();
 				if (nextImageLine.indexOf("<img src=") != -1) {
-					flag = true;
-
-					System.out.println("step 2");
 					String regex = "(https?[0-9a-z:./]+)";
 					Pattern p = Pattern.compile(regex);
 					Matcher m = p.matcher(nextImageLine);
@@ -46,14 +42,12 @@ public class CrawlerTest {
 						for (int i = 1; i < m.groupCount() + 1; i++) {
 							imgUrls.add(m.group(i));
 						}
-					} else {
-						System.out.println("break");
-						break;
 					}
+					return true;
 				}
 			}
 		}
-		return flag;
+		return false;
 	}
 
 	public String turnPage(String url) {

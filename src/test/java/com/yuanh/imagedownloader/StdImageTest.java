@@ -26,6 +26,6 @@ public class StdImageTest extends TestCase {
 		
 		ImageWriter writer = new ImageWriter("D://ImageDown//");
 		d.setWriter(writer);
-		d.ImageDownload("http://img15.yixiu8.com:8080/picture/180925/pic5/35.jpg",1,35,1,"%d");
+		d.imageDownload("http://img15.yixiu8.com:8080/picture/180925/pic5/35.jpg",1,35,1,"%d");
 	}
 }

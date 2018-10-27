@@ -6,11 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StdImageDownloader extends Downloader{
-	Connector connector;
-	ImageWriter writer;
 
-	public void ImageDownload(String url, int start, int end, int seq,String format) throws Exception {
-		super.ImageDownload(url, start, end, seq, format);
+	public void imageDownload(String url, int start, int end, int seq,String format) throws Exception {
+		super.imageDownload(url, start, end, seq, format);
 		
 		String prefix = null;
 		String suffix = null;

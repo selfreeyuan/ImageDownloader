@@ -34,7 +34,7 @@ public class StdImageDownloader extends Downloader{
 			URL imgUrl = new URL(target);
 			
 			InputStream in = connector.getImageStream(imgUrl);
-			writer.writeImage(in, writer.getPath() + seq + i + suffix);
+			writer.writeImage(in, writer.getPath() + seq + String.format(format, i) + suffix);
 
 		}
 

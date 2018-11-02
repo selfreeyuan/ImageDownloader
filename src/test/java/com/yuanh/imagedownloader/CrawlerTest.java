@@ -23,6 +23,6 @@ public class CrawlerTest {
 		ImageWriter writer = new ImageWriter("D://ImageDown//");
 		downloader.setWriter(writer);
 		
-		downloader.imageDownload("https://www.yuleba.org/a/211-1450-8.html", 1, "%03d");
+		downloader.imageDownload("https://www.yuleba.org/a/211-1368-36.html", 1, "%03d");
 	}
 }

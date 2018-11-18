@@ -7,34 +7,9 @@ import java.util.regex.Pattern;
 
 public class StdImageDownloader extends Downloader{
 
-	public void imageDownload(String url, int start, int end, int seq,String format) throws Exception {
-		super.imageDownload(url, start, end, seq, format);
+	public void imageDownload(String url,int seq,String format) throws Exception {
 		
-		String prefix = null;
-		String suffix = null;
 
-		String pattern = "(^https?:.*/)(\\d+)(.[a-z]+)$";
-		Pattern p = Pattern.compile(pattern);
-
-		Matcher matcher = p.matcher(url);
-		if (matcher.find()) {
-			prefix = matcher.group(1);
-			suffix = matcher.group(3);
-		}
-
-		for (int i = start; i < end + 1; i++) {
-			String str = null;
-			if (i == 0) {
-				str = String.valueOf(i);
-			} else {
-				str = String.format(format, i);
-
-			}
-			String target = prefix + str + suffix;
-			URL imgUrl = new URL(target);
-			
-			InputStream in = connector.getImageStream(imgUrl);
-			writer.writeImage(in, writer.getPath() + seq + String.format(format, i) + suffix);
 
 		}
 

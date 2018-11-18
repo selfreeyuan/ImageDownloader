@@ -12,7 +12,7 @@ public class ImageWriter {
 		this.path = path;
 	}
 	
-	public void writeImage(InputStream in,String imgPath) throws IOException {
+	public void writeImage(InputStream in,String imgPath,String fileName) throws IOException {
 		
 		FileOutputStream ou = new FileOutputStream(new File(imgPath));
 		byte[] buffer = new byte[1024];

@@ -9,4 +9,3 @@ public abstract class Connector {
 	public abstract InputStream getImageInpustream();
 	public abstract void setProperties(ConnProperties properties);
 }
-1

@@ -1,23 +1,13 @@
 package com.yuanh.imagedownloader;
 
-public class Downloader {
+import java.util.ArrayList;
+
+public abstract class Downloader {
 	ConnProperties properties;
 	ImageWriter writer;
 	
-	public void imageDownload() throws Exception {
-		if(this.writer == null) {
-			throw new Exception("Writer can not be null");
-		}
-	};
+	public abstract void imageDownload(ArrayList<String> list,int seq,String format) throws Exception;
 	
-	public void imageDownload(String url,int seq,String format) throws Exception {
-		imageDownload();
-	}
-	
-	public  void setProperties(ConnProperties properties) {
-		this.properties = properties;
-	};
-	public  void setWriter(ImageWriter writer) {
-		this.writer = writer;
-	};
+	public abstract void setProperties(ConnProperties properties);
+	public abstract void setWriter(ImageWriter writer);
 }

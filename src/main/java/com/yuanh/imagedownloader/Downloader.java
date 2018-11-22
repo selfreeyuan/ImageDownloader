@@ -8,6 +8,5 @@ public abstract class Downloader {
 	
 	public abstract void imageDownload(ArrayList<String> list,int seq,String format) throws Exception;
 	
-	public abstract void setProperties(ConnProperties properties);
 	public abstract void setWriter(ImageWriter writer);
 }

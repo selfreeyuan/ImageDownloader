@@ -1,11 +1,16 @@
 package com.yuanh.imagedownloader;
 
-
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.net.URL;
 
 public abstract class Connector {
-	public abstract ArrayList<String> buildImageList() throws Exception;
-	public abstract InputStream getImageInpustream();
+	URL url;
+
+	public Connector(URL url) {
+		this.url = url;
+	}
+
+	public abstract InputStream getImageInpustream() throws Exception;
+
 	public abstract void setProperties(ConnProperties properties);
 }

@@ -3,31 +3,28 @@ package com.yuanh.imagedownloader;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Map;
-
-import org.jsoup.Jsoup;
 
 
-public class StdConnector extends Connector{
+public class StdConnector extends Connector {
+
+	public StdConnector(URL url) {
+		super(url);
+	}
+
 	private ConnProperties properties;
 
 	@Override
-	public ArrayList<String> buildImageList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public InputStream getImageInpustream() {
-		// TODO Auto-generated method stub
-		return null;
+	public InputStream getImageInpustream() throws Exception {
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		for (String key : properties.getProperties().keySet()) {
+			conn.setRequestProperty(key, properties.getProperties().get(key));
+		}
+		return conn.getInputStream();
 	}
 
 	@Override
 	public void setProperties(ConnProperties properties) {
-		// TODO Auto-generated method stub
+		this.properties = properties;
 	}
-	
-	
+
 }

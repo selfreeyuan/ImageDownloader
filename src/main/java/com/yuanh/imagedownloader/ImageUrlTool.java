@@ -1,12 +1,11 @@
 package com.yuanh.imagedownloader;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ImageUrlTool {
 	public static ImageUrlEntity parese(String url) {
-		String regex = "((?:http|www)[a-zA-Z0-9:/.]+/)(\\d*)(_?)(\\d+).(html|jpg)";
+		String regex = "((?:http|www)[a-zA-Z0-9:/.]+/)([0-9-_]+)(_|-) {0,1}(\\d+).(html|jpg)";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(url);
 		

@@ -12,6 +12,15 @@ public class ImageUrlEntity {
 	String imgSeq = null; // HTML序列号
 	String suffix = null;
 
+	public ImageUrlEntity(String rootUrl, String serialSeq, String separator, String imgSeq, String suffix) {
+		this.rootUrl = rootUrl;
+		this.serialSeq = serialSeq;
+		this.separator = separator;
+		this.imgSeq = imgSeq;
+		this.suffix = suffix;
+		fullUrl = rootUrl + serialSeq + separator + imgSeq + "." + suffix;
+	}
+
 	public String getSeparator() {
 		return separator;
 	}
@@ -30,10 +39,6 @@ public class ImageUrlEntity {
 		}
 		conn.disconnect();
 		return false;
-	}
-
-	public ImageUrlEntity(String rootUrl, String serialSeq, String separator, String imgSeq, String suffix) {
-		fullUrl = rootUrl + serialSeq + separator + imgSeq + "." + suffix;
 	}
 
 	public String getSuffix() {
@@ -67,8 +72,12 @@ public class ImageUrlEntity {
 	public void setImgSeq(String imgSeq) {
 		this.imgSeq = imgSeq;
 	}
+	
+	public void setImgSeq(int imgSeq) {
+		this.imgSeq = String.valueOf(imgSeq);
+	}
 
-	public String getSourceUrl() {
+	public String getFullUrl() {
 		return fullUrl;
 	}
 

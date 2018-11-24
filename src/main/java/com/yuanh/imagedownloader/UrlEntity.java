@@ -4,15 +4,15 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class ImageUrlEntity {
-	String fullUrl = null;
-	String rootUrl = null; // HTML根地址
-	String serialSeq = null; // 专辑序列号
-	String separator = null; // 专辑与图片序列号之间的分隔符，一般为"_"
-	String imgSeq = null; // HTML序列号
-	String suffix = null;
+public class UrlEntity {
+	private String fullUrl = null;
+	private String rootUrl = null; // HTML根地址
+	private String serialSeq = null; // 专辑序列号
+	private String separator = null; // 专辑与图片序列号之间的分隔符，一般为"_"
+	private String imgSeq = null; // HTML序列号
+	private String suffix = null;
 
-	public ImageUrlEntity(String rootUrl, String serialSeq, String separator, String imgSeq, String suffix) {
+	public UrlEntity(String rootUrl, String serialSeq, String separator, String imgSeq, String suffix) {
 		this.rootUrl = rootUrl;
 		this.serialSeq = serialSeq;
 		this.separator = separator;

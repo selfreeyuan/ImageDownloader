@@ -12,9 +12,9 @@ public class ImageWriter {
 		this.path = path;
 	}
 	
-	public void writeImage(InputStream in,String imgPath,String fileName) throws IOException {
+	public void writeImage(InputStream in,String fullPath) throws IOException {
 		
-		FileOutputStream ou = new FileOutputStream(new File(imgPath));
+		FileOutputStream ou = new FileOutputStream(new File(fullPath));
 		byte[] buffer = new byte[1024];
 		int readline;
 		while((readline = in.read(buffer))!=-1) {

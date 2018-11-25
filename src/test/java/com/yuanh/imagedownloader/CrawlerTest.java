@@ -19,9 +19,9 @@ public class CrawlerTest {
 		downloader.setImgTarget(target);
 
 		
-		ImageWriter writer = new ImageWriter("D:\\imagedown\\");
+		ImageWriter writer = new ImageWriter("D:\\ImageDown\\");
 		downloader.setWriter(writer);
-		downloader.imageDownload("http://www.tu11.com/BEAUTYLEGtuimo/2018/14145_2.html", 1);
+		downloader.imageDownload("https://www.yuleba.org/a/210-1544-8.html.html", 1);
 	}
 
 }

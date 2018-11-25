@@ -18,10 +18,11 @@ public class ImgUrlFinder {
 				.referrer(conn.getProperties().getReferer())
 				.get();
 		
-		Elements e =  doc.getElementsByClass(target.getParentTag());
-		for(Element picE:e) {
-			for(Element imgE:picE.getElementsByTag(target.getTargetTag())) {
-				imgList.add(imgE.attr(target.getAttr()));
+		Elements classE =  doc.getElementsByClass(target.getParentTag());
+		for(Element everyClassE:classE) {
+			Elements picEs = everyClassE.getElementsByTag("img");
+			for(Element picE:picEs) {
+				imgList.add(picE.attr("src"));
 			}
 		}
 		return imgList;
